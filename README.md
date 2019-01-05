@@ -1,1 +1,1 @@
-# Kata Dojo!
+# Dojo.kata()!

@@ -1,32 +1,69 @@
+.Header {
+  background: #780F0F;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-name {
+  display: inline-block;
+  color: #fff;
+  font-size: 2em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.exclaim {
+  display: inline-block;
+  color: black;
+  font-size: 2.2em;
+  font-style: italic;
+}
+
 .App {
+  background-image: url('./imgs/do.jpg');
+  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.3);
+  background-color: black;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.Dojo {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.Array-cards, .String-cards, .Object-cards {
+  background-color: black;
+  color: #fff;
+  display: inline-flex;
+  margin: 10px;
+  width: 230px;
+  height: 150px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.title {
+  margin: 10px auto auto auto;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown {
+  width: 160px;
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropdown span {
+  color: #fff;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
