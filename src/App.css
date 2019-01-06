@@ -12,6 +12,7 @@
   font-size: 2em;
   margin-top: 5px;
   margin-bottom: 5px;
+  /*transform: rotate(-20deg);*/
 }
 
 .exclaim {
@@ -46,6 +47,10 @@
   margin: 10px auto auto auto;
 }
 
+.title:hover {
+  cursor: pointer;
+}
+
 .dropdown {
   width: 160px;
   display: inline-block;
@@ -67,3 +72,11 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.saved-cards {
+  background: #fff;
+  display: inline-flex;
+  width: 200px;
+  height: 300px;
+}
+
