@@ -26,16 +26,29 @@ class Dojo extends Component {
   }
 
   setStringMethods = () => {
-    
+    let strMethods = data.prototypeMethods.find((method) => {
+      return method.stringPrototypeMethods
+    });
+    this.setState({
+      stringMethods: strMethods.stringPrototypeMethods
+    });
+  }
+
+  setObjectMethods = () => {
+    let objMethods = data.prototypeMethods.find((method) => {
+      return method.objectPrototypeMethods
+    });
+    this.setState({
+      objectMethods: objMethods.objectPrototypeMethods
+    });
   }
 
   render() {
     return (
       <div className="Dojo">
-        {console.log('HELLO')}
         <ArrayMethods setArrayMethods={this.setArrayMethods} />
-        <StringMethods />
-        <ObjectMethods />
+        <StringMethods setStringMethods={this.setStringMethods} />
+        <ObjectMethods setObjectMethods={this.setObjectMethods} />
         <SavedCards />
       </div>
     );
