@@ -3,6 +3,7 @@ import ArrayMethods from './ArrayMethods.js';
 import StringMethods from './StringMethods.js';
 import ObjectMethods from './ObjectMethods.js';
 import SavedCards from './SavedCards';
+import FlashCard from './FlashCard';
 import data from './data.js';
 
 
@@ -10,9 +11,9 @@ class Dojo extends Component {
   constructor() {
     super()
     this.state = {
-      arrayMethods: [],
-      stringMethods: [],
-      objectMethods: []
+      arrayMethods: null,
+      stringMethods: null,
+      objectMethods: null
     }
   }
 
@@ -50,6 +51,7 @@ class Dojo extends Component {
         <StringMethods setStringMethods={this.setStringMethods} />
         <ObjectMethods setObjectMethods={this.setObjectMethods} />
         <SavedCards />
+        {(this.state.arrayMethods  || this.state.StringMethods || this.state.objectMethods) && (<FlashCard />)}
       </div>
     );
   }

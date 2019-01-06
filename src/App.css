@@ -1,6 +1,6 @@
 .Header {
   background: #780F0F;
-  min-height: 130px;
+  min-height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,6 +31,7 @@
 }
 
 .Dojo {
+  height: 85vh;
   text-align: center;
 }
 
@@ -79,4 +80,11 @@
   width: 200px;
   height: 300px;
 }
+
+.flash-card {
+  background: #fff;
+  margin: 0px auto auto 180px;
+  width: 700px;
+}
+
 
