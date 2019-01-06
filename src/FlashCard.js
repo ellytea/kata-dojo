@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 class FlashCard extends Component {
-  constructor() {
+  constructor(props) {
     super()
   }
 

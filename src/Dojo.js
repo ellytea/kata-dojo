@@ -13,7 +13,8 @@ class Dojo extends Component {
     this.state = {
       arrayMethods: null,
       stringMethods: null,
-      objectMethods: null
+      objectMethods: null,
+      showFlashCard: false
     }
   }
 
@@ -47,11 +48,14 @@ class Dojo extends Component {
   render() {
     return (
       <div className="Dojo">
-        <ArrayMethods setArrayMethods={this.setArrayMethods} />
+        <ArrayMethods setArrayMethods={this.setArrayMethods} arrayMethods={this.state.arrayMethods} />
         <StringMethods setStringMethods={this.setStringMethods} />
         <ObjectMethods setObjectMethods={this.setObjectMethods} />
         <SavedCards />
-        {(this.state.arrayMethods  || this.state.StringMethods || this.state.objectMethods) && (<FlashCard />)}
+        {(this.showFlashCard)
+          && (<FlashCard arrayMethods={this.state.arrayMethods}
+                         stringMethods={this.state.stringMethods}
+                         objectMethods={this.state.objectMethods} />)}
       </div>
     );
   }
