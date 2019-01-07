@@ -15,8 +15,9 @@ class StringMethods extends Component {
     });
   }
 
-  handleClick = () => {
-    this.props.setStringMethods();
+
+  handleStartClick = () => {
+    this.props.getMethod();
     this.toggleStart();
   }
 
@@ -28,8 +29,8 @@ class StringMethods extends Component {
     }
     return (
       <section className="String-cards">
-        <h3 className="title" onClick={this.handleClick}>{icon} String Methods</h3>
-        {this.state.showStart && <p className="start">Start!</p>}
+        <h3 className="title" onClick={this.toggleStart}>{icon} String Methods</h3>
+        {this.state.showStart && <p className="start" onClick={this.handleStartClick}>Start!</p>}
       </section>
       )
   }

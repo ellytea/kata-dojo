@@ -8,34 +8,12 @@ import data from './data.js';
 
 
 class Dojo extends Component {
-  constructor() {
+  constructor(props) {
     super()
     this.state = {
-      arrayMethods: null,
-      stringMethods: null,
-      objectMethods: null,
       showFlashCard: false,
-      description: null,
-      cardButtons: null
+      currentFlashCard: null
     }
-  }
-
-  setArrayMethods = () => {
-    this.setState({
-      arrayMethods: data.arrayPrototypeMethods
-    });
-  }
-
-  setStringMethods = () => {
-    this.setState({
-      stringMethods: data.stringPrototypeMethods
-    });
-  }
-
-  setObjectMethods = () => {
-    this.setState({
-      objectMethods: data.objectPrototypeMethods
-    });
   }
 
   toggleFlashCard = () => {
@@ -46,35 +24,50 @@ class Dojo extends Component {
 
   getArrayMethod = (event) => {
     const type = event.target.innerText;
-    this.toggleFlashCard();
-    let methodType = this.state.arrayMethods.find((item) => {
+    let methodType = this.props.arrayMethods.find((item) => {
       return item[type];
     });
     let newMethod = methodType[type].reduce((acc, item) => {
-    let random = Math.floor(Math.random() * methodType[type].length);
+      let random = Math.floor(Math.random() * methodType[type].length);
       acc = methodType[type][random]
       return acc;
     }, {});
     this.setState({
-      description: newMethod.description,
-      cardButtons: newMethod.answers
+      currentFlashCard: newMethod
     });
+    this.toggleFlashCard();
   }
+
+  getStringMethod = () => {
+    let random = Math.floor(Math.random() * this.props.stringMethods.length);
+    let method = this.props.stringMethods[random];
+    this.setState({
+      currentFlashCard: method
+    });
+    this.toggleFlashCard();
+  }
+
+  getObjectMethod = () => {
+    let random = Math.floor(Math.random() * this.props.objectMethods.length);
+    let method = this.props.objectMethods[random];
+    this.setState({
+      currentFlashCard: method
+    });
+    this.toggleFlashCard();
+  }
+
+
 
   render() {
     return (
       <div className="Dojo">
-        <ArrayMethods setArrayMethods={this.setArrayMethods} arrayMethods={this.state.arrayMethods}
-                      getMethod={this.getArrayMethod} />
-        <StringMethods setStringMethods={this.setStringMethods} />
-        <ObjectMethods setObjectMethods={this.setObjectMethods} />
-        <SavedCards />
+        <ArrayMethods getMethod={this.getArrayMethod} arrayMethods={this.props.arrayMethods} />
+        <StringMethods getMethod={this.getStringMethod} />
+        <ObjectMethods getMethod={this.getObjectMethod} />
+        <SavedCards currentFlashCard={this.state.currentFlashCard} />
         {(this.state.showFlashCard)
-          && (<FlashCard description={this.state.description}
-                         cardButtons={this.state.cardButtons}
-                         arrayMethods={this.state.arrayMethods}
-                         stringMethods={this.state.stringMethods}
-                         objectMethods={this.state.objectMethods} />)}
+          && (<FlashCard currentFlashCard={this.state.currentFlashCard}
+                         toggleFlashCard={this.toggleFlashCard} />)}
       </div>
     );
   }

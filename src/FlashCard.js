@@ -5,17 +5,36 @@ class FlashCard extends Component {
     super()
   }
 
+  flipCard = () => {
+    let element = document.getElementById("flip");
+    element.classList.toggle("flipped");
+  }
+
+  checkAnswer = (event) => {
+    let choice = event.target.innerText;
+    if (choice === this.props.currentFlashCard.method) {
+      this.flipCard();
+      // this.props.toggleFlashCard() when saved
+    }
+  }
+
 
   render() {
     return (
-      <section className="flash-card">
-        <p>Flash Card</p>
-        <p>{this.props.description}</p>
-        {
-          this.props.cardButtons.map((item) => {
-            return <button>{item}</button>
-          })
-        }
+      <section id="flip" className="flash-card">
+        <div class="front">
+          <p>Flash Card</p>
+          <p className="description">{this.props.currentFlashCard.description}</p>
+          {
+            this.props.currentFlashCard.answers.map((item) => {
+              return <button onClick={this.checkAnswer}>{item}</button>
+            })
+          }
+        </div>
+        <div class="back">
+          <p>Back</p>
+          <button onClick={this.flipCard}>Save Card</button>
+        </div>
       </section>
       )
   }

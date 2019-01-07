@@ -4,7 +4,7 @@ class ArrayMethods extends Component {
   constructor(props) {
     super()
     this.state = {
-      showMethodTypes: false
+      showMethodTypes: false,
     }
   }
 
@@ -14,11 +14,10 @@ class ArrayMethods extends Component {
     });
   }
 
-  handleClick = () => {
-    this.props.setArrayMethods();
+  handleTypeClick = (event) => {
+    this.props.getMethod(event);
     this.toggleMethodTypes();
   }
-
 
 
   render() {
@@ -28,12 +27,12 @@ class ArrayMethods extends Component {
     }
     return (
       <section className="Array-cards">
-        <h3 className="title" onClick={this.handleClick}>{icon} Array Methods</h3>
+        <h3 className="title" onClick={this.toggleMethodTypes}>{icon} Array Methods</h3>
         {this.state.showMethodTypes && 
           <ul>{
             this.props.arrayMethods.map((type) => {
               let key = Object.keys(type)[0]
-              return <li className="arr-type" onClick={this.props.getMethod}>{key}</li>
+              return <li className="arr-type" onClick={this.handleTypeClick}>{key}</li>
             })
           }</ul>}
       </section>

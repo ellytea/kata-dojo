@@ -14,9 +14,9 @@ class ObjectMethods extends Component {
       showStart: !this.state.showStart
     });
   }
-
-  handleClick = () => {
-    this.props.setObjectMethods();
+  
+  handleStartClick = () => {
+    this.props.getMethod();
     this.toggleStart();
   }
 
@@ -28,8 +28,8 @@ class ObjectMethods extends Component {
     }
     return (
       <section className="Object-cards">
-        <h3 className="title" onClick={this.handleClick}>{icon} Object Methods</h3>
-        {this.state.showStart && <p className="start">Start!</p>}
+        <h3 className="title" onClick={this.toggleStart}>{icon} Object Methods</h3>
+        {this.state.showStart && <p className="start" onClick={this.handleStartClick}>Start!</p>}
       </section>
       )
   }
