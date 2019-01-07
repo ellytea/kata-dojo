@@ -11,13 +11,14 @@ class ArrayMethods extends Component {
   toggleMethodTypes = () => {
     this.setState({
       showMethodTypes: !this.state.showMethodTypes
-    })
+    });
   }
 
   handleClick = () => {
     this.props.setArrayMethods();
     this.toggleMethodTypes();
   }
+
 
 
   render() {
@@ -32,7 +33,7 @@ class ArrayMethods extends Component {
           <ul>{
             this.props.arrayMethods.map((type) => {
               let key = Object.keys(type)[0]
-              return <li>{key}</li>
+              return <li className="arr-type" onClick={this.props.getMethod}>{key}</li>
             })
           }</ul>}
       </section>

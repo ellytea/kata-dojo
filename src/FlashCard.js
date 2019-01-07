@@ -10,6 +10,7 @@ class FlashCard extends Component {
     return (
       <section className="flash-card">
         <p>Flash Card</p>
+        <p>{this.props.description}</p>
       </section>
       )
   }

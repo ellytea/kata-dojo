@@ -29,7 +29,7 @@ class StringMethods extends Component {
     return (
       <section className="String-cards">
         <h3 className="title" onClick={this.handleClick}>{icon} String Methods</h3>
-        {this.state.showStart && <p>Start!</p>}
+        {this.state.showStart && <p className="start">Start!</p>}
       </section>
       )
   }

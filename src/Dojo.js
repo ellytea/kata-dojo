@@ -14,7 +14,9 @@ class Dojo extends Component {
       arrayMethods: null,
       stringMethods: null,
       objectMethods: null,
-      showFlashCard: false
+      showFlashCard: false,
+      description: null,
+      cardButtons: null
     }
   }
 
@@ -45,15 +47,44 @@ class Dojo extends Component {
     });
   }
 
+  toggleFlashCard = () => {
+    this.setState({
+      showFlashCard: !this.state.showFlashCard
+    });
+  }
+
+  getMethod = (event) => {
+    const type = event.target.innerText;
+    this.toggleFlashCard();
+    let methodType = this.state.arrayMethods.find((item) => {
+      return item[type];
+    });
+    let newMethod = methodType[type].reduce((acc, item) => {
+    let random = Math.floor(Math.random() * methodType[type].length);
+      acc = methodType[type][random]
+      return acc;
+    }, {});
+    this.setState({
+      description: newMethod.description
+    });
+    this.setState({
+      cardButtons: newMethod.answers
+    })
+  }
+
   render() {
     return (
       <div className="Dojo">
-        <ArrayMethods setArrayMethods={this.setArrayMethods} arrayMethods={this.state.arrayMethods} />
-        <StringMethods setStringMethods={this.setStringMethods} />
-        <ObjectMethods setObjectMethods={this.setObjectMethods} />
+        <ArrayMethods setArrayMethods={this.setArrayMethods} arrayMethods={this.state.arrayMethods}
+                      getMethod={this.getMethod} />
+        <StringMethods setStringMethods={this.setStringMethods}
+                       getMethod={this.getMethod} />
+        <ObjectMethods setObjectMethods={this.setObjectMethods}
+                       getMethod={this.getMethod} />
         <SavedCards />
-        {(this.showFlashCard)
-          && (<FlashCard arrayMethods={this.state.arrayMethods}
+        {(this.state.showFlashCard)
+          && (<FlashCard description={this.state.description}
+                         arrayMethods={this.state.arrayMethods}
                          stringMethods={this.state.stringMethods}
                          objectMethods={this.state.objectMethods} />)}
       </div>

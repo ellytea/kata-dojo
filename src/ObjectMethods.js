@@ -29,7 +29,7 @@ class ObjectMethods extends Component {
     return (
       <section className="Object-cards">
         <h3 className="title" onClick={this.handleClick}>{icon} Object Methods</h3>
-        {this.state.showStart && <p>Start!</p>}
+        {this.state.showStart && <p className="start">Start!</p>}
       </section>
       )
   }

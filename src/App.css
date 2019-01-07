@@ -1,57 +1,34 @@
-.Header {
-  background: #780F0F;
-  min-height: 15vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.app-name {
-  display: inline-block;
-  color: #fff;
-  font-size: 2em;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.exclaim {
-  display: inline-block;
-  color: black;
-  font-size: 2.2em;
-  font-style: italic;
-}
-
 .App {
   background-image: url('./imgs/do.jpg');
-  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.3);
+  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.34);
   background-color: black;
   background-size: cover;
   min-height: 100vh;
 }
 
-.Dojo {
-  height: 85vh;
-  text-align: center;
+.Header {
+  background: #780F0F;
+  min-height: 15vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.Array-cards, .String-cards, .Object-cards {
-  background: black;
+.app-name {
+  margin: 0;
   color: #fff;
-  display: inline-flex;
-  flex-direction: column;
-  margin: 10px;
-  padding: 10px;
+  font-size: 2em;
 }
 
-.title {
-  margin: 10px auto auto auto;
-}
-
-.title:hover {
-  cursor: pointer;
+.exclaim {
+  color: black;
+  font-size: 2.2em;
+  font-style: italic;
 }
 
 .dropdown {
+  margin-top: 45px;
+  margin-left: 20px;
   width: 160px;
   display: inline-block;
 }
@@ -71,6 +48,28 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.Dojo {
+  height: 85vh;
+  text-align: center;
+}
+
+.Array-cards, .String-cards, .Object-cards {
+  background: black;
+  color: #fff;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+}
+
+.title {
+  margin: auto;
+}
+
+.title:hover, .start:hover, .arr-type:hover {
+  cursor: pointer;
 }
 
 .saved-cards {
