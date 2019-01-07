@@ -55,11 +55,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {(this.state.showOverlay) && <section className="overlay">
-                                      <h1>Welcome!</h1>
-                                      <input value="ninja name"/>
-                                      <button onClick={this.toggleOverlay}>Enter</button>
-                                   </section>}
+      {(this.state.showOverlay) && 
+        <section className="overlay">
+          <h1 className="welcome">Welcome!</h1>
+          <input type="text" placeholder="Enter ninja name"/>
+          <button className="enter" onClick={this.toggleOverlay}>Enter</button>
+       </section>}
         <Header />
         <Dojo arrayMethods={this.state.arrData}
               stringMethods={this.state.strgData}

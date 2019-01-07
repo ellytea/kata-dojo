@@ -14,7 +14,6 @@ class FlashCard extends Component {
     let choice = event.target.innerText;
     if (choice === this.props.currentFlashCard.method) {
       this.flipCard();
-      // this.props.toggleFlashCard() when saved
     }
   }
 
