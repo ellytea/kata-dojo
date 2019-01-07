@@ -11,6 +11,11 @@ class FlashCard extends Component {
       <section className="flash-card">
         <p>Flash Card</p>
         <p>{this.props.description}</p>
+        {
+          this.props.cardButtons.map((item) => {
+            return <button>{item}</button>
+          })
+        }
       </section>
       )
   }

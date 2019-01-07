@@ -21,29 +21,20 @@ class Dojo extends Component {
   }
 
   setArrayMethods = () => {
-    let arrMethods = data.prototypeMethods.find((method) => {
-      return method.arrayPrototypeMethods;
-    });
     this.setState({
-      arrayMethods: arrMethods.arrayPrototypeMethods
+      arrayMethods: data.arrayPrototypeMethods
     });
   }
 
   setStringMethods = () => {
-    let strMethods = data.prototypeMethods.find((method) => {
-      return method.stringPrototypeMethods
-    });
     this.setState({
-      stringMethods: strMethods.stringPrototypeMethods
+      stringMethods: data.stringPrototypeMethods
     });
   }
 
   setObjectMethods = () => {
-    let objMethods = data.prototypeMethods.find((method) => {
-      return method.objectPrototypeMethods
-    });
     this.setState({
-      objectMethods: objMethods.objectPrototypeMethods
+      objectMethods: data.objectPrototypeMethods
     });
   }
 
@@ -53,7 +44,7 @@ class Dojo extends Component {
     });
   }
 
-  getMethod = (event) => {
+  getArrayMethod = (event) => {
     const type = event.target.innerText;
     this.toggleFlashCard();
     let methodType = this.state.arrayMethods.find((item) => {
@@ -65,25 +56,22 @@ class Dojo extends Component {
       return acc;
     }, {});
     this.setState({
-      description: newMethod.description
-    });
-    this.setState({
+      description: newMethod.description,
       cardButtons: newMethod.answers
-    })
+    });
   }
 
   render() {
     return (
       <div className="Dojo">
         <ArrayMethods setArrayMethods={this.setArrayMethods} arrayMethods={this.state.arrayMethods}
-                      getMethod={this.getMethod} />
-        <StringMethods setStringMethods={this.setStringMethods}
-                       getMethod={this.getMethod} />
-        <ObjectMethods setObjectMethods={this.setObjectMethods}
-                       getMethod={this.getMethod} />
+                      getMethod={this.getArrayMethod} />
+        <StringMethods setStringMethods={this.setStringMethods} />
+        <ObjectMethods setObjectMethods={this.setObjectMethods} />
         <SavedCards />
         {(this.state.showFlashCard)
           && (<FlashCard description={this.state.description}
+                         cardButtons={this.state.cardButtons}
                          arrayMethods={this.state.arrayMethods}
                          stringMethods={this.state.stringMethods}
                          objectMethods={this.state.objectMethods} />)}
