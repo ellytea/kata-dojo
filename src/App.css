@@ -97,12 +97,18 @@
   padding: 10px;
 }
 
+button {
+  font-size: 1.2em;
+  margin: 10px;
+  border-radius: 15px;
+}
+
 #flip {
   background-color: #fff;
   border-radius: 15px;
-  margin: 0px auto auto 180px;
+  margin: 60px auto auto 200px;
   width: 700px;
-  height: 200px;
+  height: 300px;
   transform-style: preserve-3d;
   transition: transform 1s;
   transform-origin: right center; 
@@ -110,6 +116,7 @@
 
 #flip div {
   background-color: #fff;
+  padding: 10px;
   border-radius: 15px;
   display: block;
   position: absolute;

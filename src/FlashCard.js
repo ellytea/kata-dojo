@@ -23,7 +23,7 @@ class FlashCard extends Component {
     return (
       <section id="flip" className="flash-card">
         <div class="front">
-          <p>Flash Card</p>
+          <p>This prototype method: </p>
           <p className="description">{this.props.currentFlashCard.description}</p>
           {
             this.props.currentFlashCard.answers.map((item) => {
