@@ -96,13 +96,15 @@
 }
 
 .title:hover, .start:hover,
-.arr-type:hover, .saved-cards:hover {
+.arr-type:hover, .saved-cards h3:hover,
+.saved-cards li:hover {
   cursor: pointer;
 }
 
 .saved-cards {
   background: #fff;
   display: inline-flex;
+  flex-direction: column;
   margin: 10px;
   padding: 10px;
 }
@@ -111,6 +113,10 @@ button {
   font-size: 1.2em;
   margin: 10px;
   border-radius: 15px;
+}
+
+button:focus {
+  outline: none;
 }
 
 #flip {

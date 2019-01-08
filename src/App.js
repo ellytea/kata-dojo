@@ -43,7 +43,6 @@ class App extends Component {
         })
       })
       .catch(error => console.log('object-fetch', error));
-
   }
 
 
@@ -54,6 +53,40 @@ class App extends Component {
     });
   }
 
+  answerCorrect = (card, method, methodType) => {
+    const earnedCards = Object.assign([], this.state.earnedCards);
+    if (method === 'arr') {
+      const data = Object.assign([], this.state.arrData);
+      const item = data.find((item) => item[methodType] != null)
+      const itemIndex = this.state.arrData.indexOf(item)
+      const cardIndex = item[methodType].indexOf(card)
+      item[methodType].splice(cardIndex, 1)
+      data[itemIndex] = item
+      earnedCards.push(card)
+      this.setState({
+        arrData: data,
+        earnedCards, 
+      });
+    } else if (method === 'string') {
+      const data = Object.assign([], this.state.strgData);
+      const cardIndex = data.indexOf(card)
+      data.splice(cardIndex, 1)
+      earnedCards.push(card)
+      this.setState({
+        strgData: data,
+        earnedCards,
+      });
+    } else if (method === 'object') {
+      const data = Object.assign([], this.state.objData);
+      const cardIndex = data.indexOf(card)
+      data.splice(cardIndex, 1)
+      earnedCards.push(card)
+      this.setState({
+        objData: data,
+        earnedCards,
+      });
+    }
+  }
 
   render() {
     return (
@@ -67,7 +100,9 @@ class App extends Component {
         <Header />
         <Dojo arrayMethods={this.state.arrData}
               stringMethods={this.state.strgData}
-              objectMethods={this.state.objData} />
+              objectMethods={this.state.objData} 
+              answerCorrect={this.answerCorrect}
+              earnedCards={this.state.earnedCards} />
       </div>
     );
   }

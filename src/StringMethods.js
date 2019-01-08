@@ -23,14 +23,19 @@ class StringMethods extends Component {
 
 
   render() {
-    let icon = '+';
-    if (this.state.showStart) {
-      icon = '-';
+    const stringMethods = this.props.stringMethods || [];
+    let toggleRender;
+    if (stringMethods.length === 0) {
+      toggleRender = this.state.showStart && <p>You have them!</p>
+    } else {
+      toggleRender = this.state.showStart && <p className="start" onClick={this.handleStartClick}>Start!</p>
     }
+    let icon;
+    this.state.showSaved ? icon = '-' : icon = '+';
     return (
       <section className="String-cards">
         <h3 className="title" onClick={this.toggleStart}>{icon} String Methods</h3>
-        {this.state.showStart && <p className="start" onClick={this.handleStartClick}>Start!</p>}
+        {toggleRender}
       </section>
       )
   }

@@ -6,7 +6,6 @@ class ObjectMethods extends Component {
     this.state = {
       showStart: false
     }
-
   }
 
   toggleStart = () => {
@@ -14,7 +13,7 @@ class ObjectMethods extends Component {
       showStart: !this.state.showStart
     });
   }
-  
+
   handleStartClick = () => {
     this.props.getMethod();
     this.toggleStart();
@@ -22,14 +21,19 @@ class ObjectMethods extends Component {
 
 
   render() {
-    let icon = '+';
-    if (this.state.showStart) {
-      icon = '-';
+    const objectMethods = this.props.objectMethods || [];
+    let toggleRender;
+    if (objectMethods.length === 0) {
+      toggleRender = this.state.showStart && <p>You have them!</p>
+    } else {
+      toggleRender = this.state.showStart && <p className="start" onClick={this.handleStartClick}>Start!</p>
     }
+    let icon;
+    this.state.showStart ? icon = '-' : icon = '+';
     return (
       <section className="Object-cards">
         <h3 className="title" onClick={this.toggleStart}>{icon} Object Methods</h3>
-        {this.state.showStart && <p className="start" onClick={this.handleStartClick}>Start!</p>}
+        {toggleRender}
       </section>
       )
   }

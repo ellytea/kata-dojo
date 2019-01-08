@@ -17,6 +17,11 @@ class FlashCard extends Component {
     }
   }
 
+  handleClick = () => {
+    this.props.answerCorrect();
+    this.props.toggleFlashCard();
+  }
+
 
   render() {
     return (
@@ -32,7 +37,7 @@ class FlashCard extends Component {
         </div>
         <div class="back">
           <p>Back</p>
-          <button onClick={this.flipCard}>Save Card</button>
+          <button onClick={this.handleClick}>Save Card</button>
         </div>
       </section>
       )

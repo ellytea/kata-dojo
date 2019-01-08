@@ -32,7 +32,9 @@ class Dojo extends Component {
       return acc;
     }, {});
     this.setState({
-      currentFlashCard: newMethod
+      currentFlashCard: newMethod,
+      currentMethod: 'arr',
+      currentMethodType: type,
     });
     this.toggleFlashCard();
   }
@@ -41,7 +43,9 @@ class Dojo extends Component {
     let random = Math.floor(Math.random() * this.props.stringMethods.length);
     let method = this.props.stringMethods[random];
     this.setState({
-      currentFlashCard: method
+      currentFlashCard: method,
+      currentMethod: 'string',
+      currentMethodType: null,
     });
     this.toggleFlashCard();
   }
@@ -50,23 +54,27 @@ class Dojo extends Component {
     let random = Math.floor(Math.random() * this.props.objectMethods.length);
     let method = this.props.objectMethods[random];
     this.setState({
-      currentFlashCard: method
+      currentFlashCard: method,
+      currentMethod: 'object',
+      currentMethodType: null,
     });
     this.toggleFlashCard();
   }
-
 
 
   render() {
     return (
       <div className="Dojo">
         <ArrayMethods getMethod={this.getArrayMethod} arrayMethods={this.props.arrayMethods} />
-        <StringMethods getMethod={this.getStringMethod} />
-        <ObjectMethods getMethod={this.getObjectMethod} />
-        <SavedCards currentFlashCard={this.state.currentFlashCard} />
+        <StringMethods getMethod={this.getStringMethod} stringMethods={this.props.stringMethods} />
+        <ObjectMethods getMethod={this.getObjectMethod} objectMethods={this.props.objectMethods} />
+        <SavedCards currentFlashCard={this.state.currentFlashCard} earnedCards={this.props.earnedCards} />
         {(this.state.showFlashCard)
           && (<FlashCard currentFlashCard={this.state.currentFlashCard}
-                         toggleFlashCard={this.toggleFlashCard} />)}
+                         toggleFlashCard={this.toggleFlashCard}
+                         answerCorrect={() => this.props.answerCorrect(this.state.currentFlashCard, this.state.currentMethod, this.state.currentMethodType)}
+                         />)
+        }
       </div>
     );
   }

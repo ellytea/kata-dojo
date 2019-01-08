@@ -21,10 +21,8 @@ class ArrayMethods extends Component {
 
 
   render() {
-    let icon = '+';
-    if (this.state.showMethodTypes) {
-      icon = '-';
-    }
+    let icon;
+    this.state.showSaved ? icon = '-' : icon = '+';
     return (
       <section className="Array-cards">
         <h3 className="title" onClick={this.toggleMethodTypes}>{icon} Array Methods</h3>
@@ -32,6 +30,9 @@ class ArrayMethods extends Component {
           <ul>{
             this.props.arrayMethods.map((type) => {
               let key = Object.keys(type)[0]
+              if (type[key].length == 0){
+                return
+              }
               return <li className="arr-type" onClick={this.handleTypeClick}>{key}</li>
             })
           }</ul>}
