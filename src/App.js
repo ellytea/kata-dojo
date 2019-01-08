@@ -15,7 +15,8 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
+
+  fetchData = () => {
     fetch('http://memoize-datasets.herokuapp.com/api/v1/arrayPrototypeMethods')
       .then(response => response.json())
       .then(data => {
@@ -42,13 +43,15 @@ class App extends Component {
         })
       })
       .catch(error => console.log('object-fetch', error));
+
   }
 
 
   toggleOverlay = () => {
+    this.fetchData();
     this.setState({
       showOverlay: !this.state.showOverlay
-    })
+    });
   }
 
 

@@ -4,7 +4,6 @@ import StringMethods from './StringMethods.js';
 import ObjectMethods from './ObjectMethods.js';
 import SavedCards from './SavedCards';
 import FlashCard from './FlashCard';
-import data from './data.js';
 
 
 class Dojo extends Component {
