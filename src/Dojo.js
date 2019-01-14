@@ -61,16 +61,22 @@ class Dojo extends Component {
     this.toggleFlashCard();
   }
 
+  setCard = (card) => {
+    console.log('cardpard', card)
+    this.setState({currentFlashCard: card, showFlashCard: true})
+  }
 
   render() {
+    console.log('poo', this.state.currentFlashCard)
     return (
       <div className="Dojo">
         <ArrayMethods getMethod={this.getArrayMethod} arrayMethods={this.props.arrayMethods} />
         <StringMethods getMethod={this.getStringMethod} stringMethods={this.props.stringMethods} />
         <ObjectMethods getMethod={this.getObjectMethod} objectMethods={this.props.objectMethods} />
-        <SavedCards currentFlashCard={this.state.currentFlashCard} earnedCards={this.props.earnedCards} />
+        <SavedCards currentFlashCard={this.state.currentFlashCard} earnedCards={this.props.earnedCards} setCard={this.setCard} />
         {(this.state.showFlashCard)
           && (<FlashCard currentFlashCard={this.state.currentFlashCard}
+                         earnedCards={this.props.earnedCards}
                          toggleFlashCard={this.toggleFlashCard}
                          answerCorrect={() => this.props.answerCorrect(this.state.currentFlashCard, this.state.currentMethod, this.state.currentMethodType)}
                          />)

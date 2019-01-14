@@ -6,8 +6,8 @@ class FlashCard extends Component {
   }
 
   flipCard = () => {
-    let element = document.getElementById("flip");
-    element.classList.toggle("flipped");
+    let element = document.getElementById('flip');
+    element.classList.toggle('flipped');
   }
 
   checkAnswer = (event) => {
@@ -24,9 +24,13 @@ class FlashCard extends Component {
 
 
   render() {
-    return (
-      <section id="flip" className="flash-card">
-        <div class="front">
+    let cardRender;
+    if ((this.props.earnedCards || []).includes(this.currentFlashCard)) {
+      cardRender = <p>{this.currentFlashCard.method}</p>
+    } else {
+      cardRender =(
+         <div>
+         <div class="front">
           <p>This prototype method: </p>
           <p className="description">{this.props.currentFlashCard.description}</p>
           {
@@ -39,8 +43,14 @@ class FlashCard extends Component {
           <p>Back</p>
           <button onClick={this.handleClick}>Save Card</button>
         </div>
+         </div>
+        )
+    }
+    return (
+      <section id="flip" className="flash-card">
+        {cardRender}
       </section>
-      )
+    )
   }
 }
 

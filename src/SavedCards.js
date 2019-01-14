@@ -21,7 +21,7 @@ class SavedCards extends Component {
     if (earnedCards.length === 0) {
       toggleRender = this.state.showSaved && <p>Start earning!</p>
     } else {
-      toggleRender = this.state.showSaved && <ul>{earnedCards.map(item => <li>{item.method}</li>)}</ul>
+      toggleRender = this.state.showSaved && <ul>{earnedCards.map(item => <li onClick={() => this.props.setCard(item)}>{item.method}</li>)}</ul>
     }
     let icon;
     this.state.showSaved ? icon = '-' : icon = '+';
