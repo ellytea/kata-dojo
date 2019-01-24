@@ -40,7 +40,8 @@ class FlashCard extends Component {
           }
         </div>
         <div class="back">
-          <p>Back</p>
+          <p>Parameters: {this.props.currentFlashCard.parameters}</p>
+          <p>Syntax: {this.props.currentFlashCard.syntax}</p>
           <button onClick={this.handleClick}>Save Card</button>
         </div>
          </div>
