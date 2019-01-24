@@ -11,7 +11,8 @@ class App extends Component {
       showOverlay: true,
       arrData: null,
       strgData: null,
-      objData: null
+      objData: null,
+      playerName: null
     }
   }
 
@@ -51,6 +52,14 @@ class App extends Component {
     this.setState({
       showOverlay: !this.state.showOverlay
     });
+  }
+
+  handleEnterClick = () => {
+    let name = document.querySelector('.input-name').value;
+    this.setState({
+      playerName: name
+    });
+    this.toggleOverlay();
   }
 
   answerCorrect = (card, method, methodType) => {
@@ -94,10 +103,10 @@ class App extends Component {
       {(this.state.showOverlay) && 
         <section className="overlay">
           <h1 className="welcome">Welcome!</h1>
-          <input type="text" placeholder="Enter ninja name"/>
-          <button className="enter" onClick={this.toggleOverlay}>Enter</button>
+          <input className="input-name" type="text" placeholder="Enter ninja name"/>
+          <button className="enter" onClick={this.handleEnterClick}>Enter</button>
        </section>}
-        <Header />
+        <Header playerName={this.state.playerName} />
         <Dojo arrayMethods={this.state.arrData}
               stringMethods={this.state.strgData}
               objectMethods={this.state.objData} 

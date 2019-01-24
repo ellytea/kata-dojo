@@ -75,12 +75,12 @@ class Dojo extends Component {
         <StringMethods getMethod={this.getStringMethod} stringMethods={this.props.stringMethods} />
         <ObjectMethods getMethod={this.getObjectMethod} objectMethods={this.props.objectMethods} />
         <SavedCards currentFlashCard={this.state.currentFlashCard} earnedCards={this.props.earnedCards} setCard={this.setCard} />
-        {(this.state.showFlashCard)
-          && (<FlashCard currentFlashCard={this.state.currentFlashCard}
-                         earnedCards={this.props.earnedCards}
-                         toggleFlashCard={this.toggleFlashCard}
-                         answerCorrect={() => this.props.answerCorrect(this.state.currentFlashCard, this.state.currentMethod, this.state.currentMethodType)}
-                         />)
+        {(this.state.showFlashCard) &&
+          (<FlashCard currentFlashCard={this.state.currentFlashCard}
+                      earnedCards={this.props.earnedCards}
+                      toggleFlashCard={this.toggleFlashCard}
+                      answerCorrect={() => this.props.answerCorrect(this.state.currentFlashCard, this.state.currentMethod, this.state.currentMethodType)} />
+          )
         }
       </div>
     );

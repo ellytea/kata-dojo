@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
-  constructor(){
+  constructor(props){
     super()
   }
 
@@ -19,7 +19,8 @@ class Header extends Component {
             <div className="dropdown-content">
               <p>Select which type of method to practice and save to your card bank!</p>
             </div>
-        </div>
+          </div>
+          <h1>Ninja {this.props.playerName}</h1>
         </header>
     );
   }

@@ -32,7 +32,7 @@
 
 .Header {
   background: #780F0F;
-  min-height: 15vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: row;
   align-items: center;
