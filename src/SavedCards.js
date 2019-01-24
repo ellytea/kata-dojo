@@ -27,7 +27,7 @@ class SavedCards extends Component {
     this.state.showSaved ? icon = '-' : icon = '+';
     return (
       <section className="saved-cards">
-        <h3 onClick={this.toggleSavedCards}>{icon} Earned Flashcards</h3>
+        <h3 onClick={this.toggleSavedCards}>{icon} Flashcard Bank</h3>
         {toggleRender}
       </section>
       )

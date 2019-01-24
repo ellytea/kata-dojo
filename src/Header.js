@@ -17,7 +17,7 @@ class Header extends Component {
           <div className="dropdown">
             <span>Dojo Rules &#9660;</span>
             <div className="dropdown-content">
-              <p>Add some instructions for the quiz</p>
+              <p>Select which type of method to practice and save to your card bank!</p>
             </div>
         </div>
         </header>
