@@ -62,12 +62,13 @@ class Dojo extends Component {
   }
 
   setCard = (card) => {
-    console.log('cardpard', card)
-    this.setState({currentFlashCard: card, showFlashCard: true})
+    this.setState({
+      currentFlashCard: card,
+      showFlashCard: true
+    })
   }
 
   render() {
-    console.log('poo', this.state.currentFlashCard)
     return (
       <div className="Dojo">
         <ArrayMethods getMethod={this.getArrayMethod} arrayMethods={this.props.arrayMethods} />
