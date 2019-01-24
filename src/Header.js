@@ -17,7 +17,7 @@ class Header extends Component {
           <div className="dropdown">
             <span>Dojo Rules &#9660;</span>
             <div className="dropdown-content">
-              <p>Select which type of method to practice and save to your card bank!</p>
+              <p>Select which type of method to practice, get it right, and save it to your card bank!</p>
             </div>
           </div>
           <h1>Ninja {this.props.playerName}</h1>

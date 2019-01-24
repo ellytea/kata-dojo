@@ -22,7 +22,8 @@ class SavedCards extends Component {
     if (earnedCards.length === 0) {
       toggleRender = this.state.showSaved && <p>Start earning!</p>
     } else {
-      toggleRender = this.state.showSaved && <ul>{earnedCards.map(item => <li onClick={() => this.props.setCard(item)}>{item.method}</li>)}</ul>
+      toggleRender = this.state.showSaved &&
+      <ul>{earnedCards.map(item => <li onClick={() => this.props.setCard(item)}>{item.method}</li>)}</ul>
     }
     this.state.showSaved ? icon = '-' : icon = '+';
     return (
@@ -30,7 +31,7 @@ class SavedCards extends Component {
         <h3 onClick={this.toggleSavedCards}>{icon} Flashcard Bank</h3>
         {toggleRender}
       </section>
-      )
+    )
   }
 }
 
